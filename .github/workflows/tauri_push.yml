@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [macos-latest, ubuntu-20.04, windows-latest]
+        platform: [windows-latest]
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v3
@@ -34,4 +34,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Builds
-          path: src-tauri/target/release/
+          path: |
+            src-tauri/target/release/bundle/macos/
+            src-tauri/target/release/bundle/nsis/
+            src-tauri/target/release/bundle/deb/
+          if-no-files-found: ignore
