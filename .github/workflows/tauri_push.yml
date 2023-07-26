@@ -7,7 +7,7 @@ jobs:
   build:
     permissions:
       contents: write
-    strategey:
+    strategy:
       fail-fast: false
       matrix:
         platform: [macos-latest, ubuntu-20.04, windows-latest]
